@@ -23,7 +23,7 @@ public class AdvertisementTests {
             .setFieldNamingPolicy(LOWER_CASE_WITH_UNDERSCORES)
             .create();
 
-    @Test
+    //@Test
     public void generateUUID() {
         for (var i = 0; i < 10; i++) {
             System.out.println(UUID.randomUUID());
@@ -56,14 +56,14 @@ public class AdvertisementTests {
 
         List<Impression> impressionsList = gson.fromJson(impressions, listType);
 
-        assertEquals(18, impressionsList.size());
+        assertEquals(2047, impressionsList.size());
 
         var impression = impressionsList.get(0);
 
-        assertEquals("39235920-13f4-4ed1-8aee-1a25a3ef4f29", impression.id.toString());
-        assertEquals(777, impression.appId);
-        assertEquals("IR", impression.countryCode);
-        assertEquals(999, impression.advertiserId);
+        assertEquals("a39747e8-9c58-41db-8f9f-27963bc248b5", impression.id.toString());
+        assertEquals(32, impression.appId);
+        assertEquals("UK", impression.countryCode);
+        assertEquals(8, impression.advertiserId);
     }
 
     @Test
@@ -82,12 +82,12 @@ public class AdvertisementTests {
 
         List<Click> clicksList = gson.fromJson(clicks, listType);
 
-        assertEquals(10, clicksList.size());
+        assertEquals(95, clicksList.size());
 
         var click = clicksList.get(0);
 
-        assertEquals("39235920-13f4-4ed1-8aee-1a25a3ef4f29", click.impressionId.toString());
-        assertEquals(1.2, click.revenue);
+        assertEquals("97dd2a0f-6d42-4c63-8cd6-5270c19f20d6", click.impressionId.toString());
+        assertEquals(2.091225600111518, click.revenue);
     }
 
     public record Person(String name, int age, String address) {
